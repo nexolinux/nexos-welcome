@@ -1,8 +1,8 @@
-![ALG](frontend/src/assets/images/alg-welcome.png)
+
 
 # About
 
-ALG-Welcome built using wails framework with Reactjs and Go
+Nexos-Welcome built using wails framework with Reactjs and Go
 
 # Pre-Installation
 
