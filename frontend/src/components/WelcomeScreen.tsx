@@ -176,7 +176,7 @@ const WelcomeScreen: React.FC<ScreenProps> = ({
             </button>
             <button
               onClick={() => {
-                handleNexosCLI;
+                handleNexosCLI();
               }}
               className={`block w-full py-2 px-4 font-bold rounded-lg ${
                 isDarkMode
