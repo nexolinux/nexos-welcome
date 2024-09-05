@@ -97,14 +97,14 @@ html {
 }
 
 .button:hover {
-  background-color: #7c53ed;
+  background-color: #76e494;
 }
 
 .about-us {
   height: 41px !important;
   width: 170px !important;
   padding: 8px 16px;
-  background-color: #6a45d1;
+  background-color: #76e494;
   color: white;
   border-radius: 9999px;
   display: flex;

@@ -6,6 +6,7 @@ import {
   IsLiveISO,
   RunCalamaresIfLiveISO,
   URL,
+  NexosCLI,
 } from "../../wailsjs/go/main/App";
 import "../globals.css";
 import extDark from "../assets/ext-dark.png";
@@ -43,7 +44,7 @@ const WelcomeScreen: React.FC<ScreenProps> = ({
     checkInstallation();
   }, []);
 
-  const handleInstallALG = async () => {
+  const handleInstallNexos = async () => {
     setLoading(true);
     try {
       setIsCalaOpen(true);
@@ -51,7 +52,7 @@ const WelcomeScreen: React.FC<ScreenProps> = ({
       setIsCalaOpen(false);
     } catch (error) {
       setModalTitle("Error");
-      setModalMessage("Failed to install ALG.");
+      setModalMessage("Failed to install Nexos.");
       setModalVisible(true);
     } finally {
       setLoading(false);
@@ -82,6 +83,16 @@ const WelcomeScreen: React.FC<ScreenProps> = ({
     }
   };
 
+  const handleNexosCLI = async () => {
+    try {
+      await NexosCLI();
+    } catch (e) {
+      setModalTitle("Error");
+      setModalMessage("Failed to open Nexos Cli.");
+      setModalVisible(true);
+    }
+  };
+
   return (
     <div
       className={`flex flex-col h-full p-6 ml-3 mr-3 ${
@@ -105,7 +116,7 @@ const WelcomeScreen: React.FC<ScreenProps> = ({
             <h2 className="text-lg font-semibold mb-2">Install & Setup</h2>
             {isInstalled ? (
               <button
-                onClick={handleInstallALG}
+                onClick={handleInstallNexos}
                 className={`block w-full py-2 px-4 mb-2 font-bold rounded-lg ${
                   isCalaOpen
                     ? "opacity-50 cursor-not-allowed"
@@ -115,11 +126,11 @@ const WelcomeScreen: React.FC<ScreenProps> = ({
                 }`}
                 disabled={isCalaOpen}
               >
-                Install ALG
+                Install Nexos
               </button>
             ) : (
               <button
-                onClick={() => URL("https://arkalinuxgui.vercel.app/tutorials")}
+                onClick={() => URL("https://nexos.vercel.app/tutorials")}
                 className={`flex w-full py-2 px-4 mb-2 rounded-lg ${
                   isDarkMode
                     ? "bg-gray-700 hover:bg-gray-600"
@@ -165,7 +176,7 @@ const WelcomeScreen: React.FC<ScreenProps> = ({
             </button>
             <button
               onClick={() => {
-                goToScreen(1);
+                handleNexosCLI;
               }}
               className={`block w-full py-2 px-4 font-bold rounded-lg ${
                 isDarkMode
@@ -173,7 +184,7 @@ const WelcomeScreen: React.FC<ScreenProps> = ({
                   : "bg-gray-300 hover:bg-gray-400"
               }`}
             >
-              Update Mirrorlist
+              Nexos CLI
             </button>
           </div>
         </div>
@@ -182,7 +193,7 @@ const WelcomeScreen: React.FC<ScreenProps> = ({
           <h2 className="text-lg font-semibold mb-2">Social Media Links</h2>
           <div className="flex space-x-10">
             <button
-              onClick={() => URL("https://github.com/arch-linux-gui")}
+              onClick={() => URL("https://github.com/nexolinux")}
               className={`flex-1 py-2 px-4 font-bold rounded-lg ${
                 isDarkMode
                   ? "bg-gray-700 hover:bg-gray-600"
@@ -199,7 +210,7 @@ const WelcomeScreen: React.FC<ScreenProps> = ({
               </div>
             </button>
             <button
-              onClick={() => URL("https://discord.gg/NgAFEw9Tkf")}
+              onClick={() => URL("https://discord.gg/CV8BFhAWkj")}
               className={`flex-1 py-2 px-4 font-bold rounded-lg ${
                 isDarkMode
                   ? "bg-gray-700 hover:bg-gray-600"
@@ -226,7 +237,7 @@ const WelcomeScreen: React.FC<ScreenProps> = ({
               onClick={toggleAutoStart}
               className={`w-12 h-6 rounded-full p-1 cursor-pointer ${
                 isAutoStart
-                  ? "bg-[#6a45d1]"
+                  ? "bg-[#76E494]"
                   : isDarkMode
                   ? "bg-gray-600"
                   : "bg-gray-400"
@@ -244,7 +255,7 @@ const WelcomeScreen: React.FC<ScreenProps> = ({
             <div
               onClick={toggleDarkMode}
               className={`w-12 h-6 rounded-full p-1 cursor-pointer ${
-                isDarkMode ? "bg-[#6a45d1]" : "bg-gray-400"
+                isDarkMode ? "bg-[#76E494]" : "bg-gray-400"
               }`}
             >
               <div
@@ -257,7 +268,7 @@ const WelcomeScreen: React.FC<ScreenProps> = ({
         </div>
         <button
           onClick={() => {
-            goToScreen(2);
+            goToScreen(1);
           }}
           className={`block w-full py-2 px-4 mt-4 font-bold rounded-lg ${
             isDarkMode

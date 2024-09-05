@@ -414,6 +414,28 @@ func (a *App) ScreenResolution() {
 	}
 }
 
+func (a *App) NexosCLI() {
+	var pkexecCmd *exec.Cmd
+
+	switch desktopEnv {
+	case "xfce":
+		pkexecCmd = exec.Command("xfce4-terminal", "-e", "nexos-cli")
+	case "gnome":
+		pkexecCmd = exec.Command("gnome-terminal", "--","nexos-cli")
+	case "kde":
+		kcm_kscreen := "`nexos-cli`"
+		pkexecCmd = exec.Command("bash", "-c", kcm_kscreen)
+	default:
+		fmt.Printf("unsupported desktop environment: %s\n", desktopEnv)
+	}
+
+	err := pkexecCmd.Run()
+	if err != nil {
+		fmt.Printf("Error Occured: %s", err)
+	}
+}
+
+
 func checkIfLiveISO() bool {
 	_, err := os.Stat("/run/archiso")
 	return err == nil

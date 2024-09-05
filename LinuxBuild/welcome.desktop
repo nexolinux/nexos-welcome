@@ -8,6 +8,6 @@ Encoding=UTF-8
 Terminal=false
 Exec=welcome
 Icon=/usr/share/pixmaps/welcome.png
-Comment=ALG - Welcome App
+Comment=Nexos - Welcome App
 Categories=System;Go;
 StartupNotify=true

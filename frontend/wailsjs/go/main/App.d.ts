@@ -13,6 +13,8 @@ export function LogMessage(arg1:string):Promise<void>;
 
 export function MirrorList(arg1:string):Promise<void>;
 
+export function NexosCLI():Promise<void>;
+
 export function RunCalamaresIfLiveISO():Promise<void>;
 
 export function ScreenResolution():Promise<void>;

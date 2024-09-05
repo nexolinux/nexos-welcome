@@ -10,7 +10,6 @@ import back from "./assets/back.png";
 import backDark from "./assets/back-dark.png";
 import WelcomeScreen from "./components/WelcomeScreen";
 import AboutUs from "./components/AboutUs";
-import CountrySelectionScreen from "./components/CountrySelectionScreen";
 import logDark from "./assets/logDark.png";
 import logLight from "./assets/logLight.png";
 import Logger from "./components/Logger";
@@ -88,10 +87,6 @@ const App: React.FC = () => {
       isAutoStart={isAutoStart}
       toggleAutoStart={toggleAutoStart}
     />,
-    <CountrySelectionScreen
-      isDarkMode={isDarkMode}
-      setShowLogger={setterLogger}
-    />,
     <AboutUs />,
   ];
 
@@ -144,7 +139,7 @@ const App: React.FC = () => {
           </div>
         )}
       </div>
-      {currentScreen === 1 && (
+      {currentScreen === 2 && (
         <button
           onClick={() => setShowLogger(!showLogger)}
           className={cn(

@@ -26,6 +26,10 @@ export function MirrorList(arg1) {
   return window['go']['main']['App']['MirrorList'](arg1);
 }
 
+export function NexosCLI() {
+  return window['go']['main']['App']['NexosCLI']();
+}
+
 export function RunCalamaresIfLiveISO() {
   return window['go']['main']['App']['RunCalamaresIfLiveISO']();
 }
